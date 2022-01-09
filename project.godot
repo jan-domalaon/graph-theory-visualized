@@ -11,7 +11,10 @@ config_version=4
 [application]
 
 config/name="Graph Theory Visualized"
-run/main_scene="res://menu/main_menu.tscn"
+run/main_scene="res://menu/intro/intro.tscn"
+boot_splash/image="res://menu/intro/empty.png"
+boot_splash/use_filter=false
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
 [display]
@@ -19,7 +22,7 @@ config/icon="res://icon.png"
 window/size/width=1920
 window/size/height=1080
 window/size/resizable=false
-window/size/fullscreen=true
+window/size/borderless=true
 
 [physics]
 

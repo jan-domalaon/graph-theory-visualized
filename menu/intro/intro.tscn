@@ -1,0 +1,322 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://menu/intro/mg-wordmark.png" type="Texture" id=1]
+[ext_resource path="res://menu/intro/logo_ship.png" type="Texture" id=2]
+[ext_resource path="res://fonts/Montserrat-Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://menu/intro/utsc.png" type="Texture" id=4]
+[ext_resource path="res://menu/intro/intro.gd" type="Script" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Intro"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 5, 5.7, 9.1, 9.6 ),
+"transitions": PoolRealArray( 2, 2, 1, 1, 0.5, 0.5 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0.0705882, 0.105882, 0.133333, 1 ), Color( 0.0705882, 0.105882, 0.133333, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.137255, 0.137255, 0.180392, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MGCenterContainer/HBoxContainer/MGWord:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 2.7, 4, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MGCenterContainer/HBoxContainer/MGLogo:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 1.5, 4, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("MGCenterContainer/HBoxContainer:custom_constants/separation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2, 3 ),
+"transitions": PoolRealArray( 1, 0.5, 0.5 ),
+"update": 0,
+"values": [ -535, -535, 100 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("UTCenterContainer/VBoxContainer/UTLogo:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 6.6, 7.1, 8.1, 8.6 ),
+"transitions": PoolRealArray( 1, 0.5, 0.5, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("UTCenterContainer/VBoxContainer/CollabLabel:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 6, 6.5, 8.1, 8.6 ),
+"transitions": PoolRealArray( 1, 0.5, 0.5, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("UTCenterContainer/VBoxContainer/UTLogo:rect_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = false
+tracks/6/keys = {
+"times": PoolRealArray( 0, 6, 7.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.7, 0.7 ), Vector2( 0.7, 0.7 ), Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("UTCenterContainer/VBoxContainer/CollabLabel:rect_scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 6, 6.5 ),
+"transitions": PoolRealArray( 1, 0.5, 0.5 ),
+"update": 0,
+"values": [ Vector2( 0.7, 0.7 ), Vector2( 0.7, 0.7 ), Vector2( 1, 1 ) ]
+}
+tracks/8/type = "method"
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 10 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "go_to_main_menu"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MGCenterContainer/HBoxContainer/MGWord:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MGCenterContainer/HBoxContainer/MGLogo:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("MGCenterContainer/HBoxContainer:custom_constants/separation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -535 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("UTCenterContainer/VBoxContainer/UTLogo:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("UTCenterContainer/VBoxContainer/CollabLabel:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("UTCenterContainer/VBoxContainer/UTLogo:rect_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("UTCenterContainer/VBoxContainer/CollabLabel:rect_scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+font_data = ExtResource( 3 )
+
+[node name="Intro" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Intro"
+anims/Intro = SubResource( 1 )
+anims/RESET = SubResource( 2 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MGCenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MGCenterContainer"]
+margin_left = 716.0
+margin_top = 256.0
+margin_right = 1204.0
+margin_bottom = 824.0
+custom_constants/separation = -535
+
+[node name="MGLogo" type="TextureRect" parent="MGCenterContainer/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 488.0
+margin_bottom = 568.0
+rect_min_size = Vector2( 488, 568 )
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MGWord" type="TextureRect" parent="MGCenterContainer/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -47.0
+margin_right = 488.0
+margin_bottom = 568.0
+rect_min_size = Vector2( 535, 166 )
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UTCenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -50.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UTCenterContainer"]
+margin_left = 554.0
+margin_top = 287.0
+margin_right = 1365.0
+margin_bottom = 742.0
+custom_constants/separation = 40
+
+[node name="CollabLabel" type="Label" parent="UTCenterContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 811.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 811, 60 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "In collaboration with"
+
+[node name="UTLogo" type="TextureRect" parent="UTCenterContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 100.0
+margin_right = 811.0
+margin_bottom = 455.0
+rect_min_size = Vector2( 811, 355 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
