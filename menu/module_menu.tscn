@@ -1,6 +1,38 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://menu/menu_theme.tres" type="Theme" id=1]
+[ext_resource path="res://menu/vignette.png" type="Texture" id=2]
+
+[sub_resource type="Shader" id=6]
+code = "// From https://godotshaders.com/shader/color-vignetting/
+
+shader_type canvas_item;
+
+uniform float vignette_intensity = 0.4;
+uniform float vignette_opacity : hint_range(0.0, 1.0) = 0.5;
+uniform vec4 vignette_rgb : hint_color = vec4(0.0, 0.0, 0.0, 1.0);
+
+float vignette(vec2 uv){
+	uv *= 1.0 - uv.xy;
+	float vignette = uv.x * uv.y * 15.0;
+	return pow(vignette, vignette_intensity * vignette_opacity);
+}
+
+void fragment(){
+	vec4 color = texture(SCREEN_TEXTURE, SCREEN_UV);
+	vec4 text = texture(TEXTURE, UV);
+	
+	text.rgba *= (vignette_rgb.rgba);
+	text.rgba *= (1.0 - vignette(UV));
+	
+	COLOR = vec4((text.rgb)*color.rgb,text.a);
+}"
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 6 )
+shader_param/vignette_intensity = 0.3
+shader_param/vignette_opacity = 0.4
+shader_param/vignette_rgb = Color( 0, 0, 0, 1 )
 
 [node name="ModuleSelection" type="Control"]
 anchor_right = 1.0
@@ -16,6 +48,15 @@ anchor_bottom = 1.0
 rect_min_size = Vector2( 1280, 720 )
 mouse_filter = 2
 color = Color( 0.133333, 0.141176, 0.196078, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Vignette" type="TextureRect" parent="."]
+material = SubResource( 7 )
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
