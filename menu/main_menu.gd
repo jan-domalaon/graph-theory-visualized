@@ -20,7 +20,7 @@ func end_intro() -> void:
 		post_intro_played = true
 
 func _on_Play_pressed():
-	get_tree().change_scene("")
+	SceneChangeTransition.change_scene_transition("res://menu/module_menu.tscn", $VBoxContainer/ButtonContainer)
 
 
 func _on_Exit_pressed():

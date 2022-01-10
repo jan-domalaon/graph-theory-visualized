@@ -17,6 +17,11 @@ boot_splash/use_filter=false
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://menu/splash.png"
 
+[autoload]
+
+UIFunctions="*res://global/ui_functions.gd"
+SceneChangeTransition="*res://global/scene_change/scene_change_transition.tscn"
+
 [display]
 
 window/size/width=1920
