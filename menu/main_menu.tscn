@@ -116,7 +116,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.5, 1 ),
+"times": PoolRealArray( 0.7, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
@@ -398,9 +398,9 @@ __meta__ = {
 [node name="ButtonContainer" type="VBoxContainer" parent="VBoxContainer"]
 visible = false
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 566.0
+margin_top = 57.0
 margin_right = 1320.0
-margin_bottom = 846.0
+margin_bottom = 337.0
 custom_constants/separation = 20
 
 [node name="Play" type="Button" parent="VBoxContainer/ButtonContainer"]

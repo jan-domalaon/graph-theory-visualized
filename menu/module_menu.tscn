@@ -140,7 +140,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/DescriptionBox"]
+[node name="DescriptionLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/DescriptionBox"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
@@ -151,16 +151,12 @@ rect_min_size = Vector2( 880, 800 )
 theme = ExtResource( 1 )
 custom_fonts/normal_font = SubResource( 8 )
 bbcode_enabled = true
-bbcode_text = "Voluptatem alias doloribus velit eos. Veniam odit voluptate architecto qui. Porro vel ipsam aut. Et quaerat illo libero.
+bbcode_text = "Welcome to Graph Theory [color=yellow][wave amp=50 freq=2]Visualized![/wave][/color]
 
-Quia alias repudiandae enim labore quisquam voluptatum. Tenetur neque recusandae eum. Exercitationem repudiandae sed mollitia.
+We have a list of various graph theory concepts to explore. Select a module on the left to get started!"
+text = "Welcome to Graph Theory Visualized!
 
-Optio cupiditate omnis assumenda ea voluptates. Omnis labore quidem occaecati harum veritatis. Ullam sed reiciendis laborum. Dolores qui quo ab eos. Voluptas dolor animi dolorem et suscipit ab. Quae velit eveniet asperiores nisi in aspernatur dolorum eum."
-text = "Voluptatem alias doloribus velit eos. Veniam odit voluptate architecto qui. Porro vel ipsam aut. Et quaerat illo libero.
-
-Quia alias repudiandae enim labore quisquam voluptatum. Tenetur neque recusandae eum. Exercitationem repudiandae sed mollitia.
-
-Optio cupiditate omnis assumenda ea voluptates. Omnis labore quidem occaecati harum veritatis. Ullam sed reiciendis laborum. Dolores qui quo ab eos. Voluptas dolor animi dolorem et suscipit ab. Quae velit eveniet asperiores nisi in aspernatur dolorum eum."
+We have a list of various graph theory concepts to explore. Select a module on the left to get started!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -179,4 +175,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[connection signal="item_selected" from="VBoxContainer/HBoxContainer/SelectionBox/ModuleTree" to="VBoxContainer/HBoxContainer/SelectionBox/ModuleTree" method="_on_ModuleTree_item_selected"]
+[connection signal="signal_update_chapter_desc" from="VBoxContainer/HBoxContainer/SelectionBox/ModuleTree" to="." method="_on_ModuleTree_signal_update_chapter_desc"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

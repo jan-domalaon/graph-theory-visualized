@@ -1,0 +1,87 @@
+{
+	"root": "Graph Theory Modules",
+	"children": [
+		{
+			"module_1": "Module 1: Definitions, Degrees, Isomorphisms",
+			"module_desc": "Module 1 covers the basic concepts of graph theory.\n\nHere, we look at the definition of a graph, its properties, types of u-v walks, and the common types of basic graphs. We also look at the degrees of the graph, what they represent, and some important theorems that can describe the graph. Lastly, we look into the concept of isomorphism and how it is applied in graph theory.",
+			"module_chapters": [
+			{
+				"chapter": "What Is a Graph?",
+				"chapter_desc": "This chapter gives the mathematical definition of a graph. We explore its prominence in various real world applications and why the study and application of graph theory is so important."
+			},
+			{
+				"chapter": "Common Types of Graphs",
+				"chapter_desc": "Module 1 Chapter 2 description"
+			},
+			{
+				"chapter": "Interactive Section: City Park Designer",
+				"chapter_desc": "City Park Designer description"
+			},
+			{
+				"chapter": "Degrees of a Graph",
+				"chapter_desc": "Module 1 Chapter 3 description"
+			},
+			{
+				"chapter": "Interactive Section: Hackerman",
+				"chapter_desc": "Hackerman description"
+			},
+			{
+				"chapter": "r-regular Graphs",
+				"chapter_desc": "Module 1 Chapter 4 description"
+			},
+			{
+				"chapter": "Graph Isomorphisms",
+				"chapter_desc": "Module 1 Chapter 5 description"
+			},
+			{
+				"chapter": "Interactive Section: Electronics Patent Lawyer",
+				"chapter_desc": "Electronics Patent Lawyer description"
+			}
+			],
+		},
+		{
+			"module_2": "Module 2: Trees, Connectivity, Traversability",
+			"module_desc": "Module 2 description",
+			"module_chapters": [
+			{
+				"chapter": "Bridges of a Graph",
+				"chapter_desc": "Module 2 Chapter 1 description"
+			},
+			{
+				"chapter": "Interactive Section: MST Algorithms Visualization",
+				"chapter_desc": "MST Algorithms description"
+			},
+			{
+				"chapter": "Interactive Section: Bomb Defusal",
+				"chapter_desc": "Bomb Defusal description"
+			},
+			{
+				"chapter": "Interactive Section: Bridge Walkathon",
+				"chapter_desc": "Bridge Walkathon description"
+			}
+			]
+		},
+		{
+			"module_3": "Module 3: Planarity, Graph Embedding, Coloring",
+			"module_desc": "Module 3 description",
+			"module_chapters": [
+			{
+				"chapter": "Planar Graphs",
+				"chapter_desc": "Module 3 Chapter 1 description"
+			},
+			{
+				"chapter": "Interactive Section: Houses and Utilities",
+				"chapter_desc": "Houses and Utilities description"
+			},
+			{
+				"chapter": "Interactive Section: Nonplanar Graphs Embedded",
+				"chapter_desc": "Nonplanar Graphs Embedded description"
+			},
+			{
+				"chapter": "Interactive Section: Cartography Coloring",
+				"chapter_desc": "Cartography Coloring description"
+			},
+		]
+		}
+	]
+}
