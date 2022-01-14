@@ -10,11 +10,14 @@ const MODULE_DESC_KEY : String = "module_desc"
 const CHAPTER_KEY : String = "chapter"
 const CHAPTER_DESC_KEY : String = "chapter_desc"
 const NO_CHAPTER_DESC : String = "This module/chapter has no description."
+const MODULE_SUFFIX : String = "Module"
 
 export var tree_json_path : String = "res://menu/module_tree.json"
 onready var tree_node : Tree = $"." 
 
 signal signal_update_chapter_desc(chapter_desc)
+signal signal_selected_chapter
+signal signal_selected_module
 
 func _ready():
 	#initialize_module_tree()
@@ -38,6 +41,7 @@ func initialize_module_tree(_tree_dict : Dictionary) -> void:
 		var module_desc = _tree_dict[TREE_CHILDREN_KEY][num_ind-1][MODULE_DESC_KEY]
 		module.set_text(0, module_name)
 		module.set_metadata(0, module_desc)
+		module.set_suffix(0, MODULE_SUFFIX)
 		module.set_collapsed(true)
 		add_module_children(module, module_pair_dict, MODULE_CHAPTER_KEY)
 
@@ -63,10 +67,26 @@ func get_module_json() -> Dictionary:
 
 
 func _on_ModuleTree_item_selected():
+	var selected_tree_item = get_selected()
 	var selected_tree_item_metadata = get_selected().get_metadata(0)
 	
-	if selected_tree_item_metadata != null:
-		# Send a signal to update chapter description box (see ModuleSelection screen)
-		emit_signal("signal_update_chapter_desc", selected_tree_item_metadata)
+	# Send a signal to update chapter description box (see ModuleSelection screen)
+	emit_update_chapter_desc(selected_tree_item_metadata)
+	
+	# Also send a signal to trigger play button visibility
+	emit_selected_tree_item(selected_tree_item)
+
+
+func emit_update_chapter_desc(_chapter_desc : String) -> void:
+	if _chapter_desc != null:
+		emit_signal("signal_update_chapter_desc", _chapter_desc)
 	else:
 		emit_signal("signal_update_chapter_desc", NO_CHAPTER_DESC)
+
+
+func emit_selected_tree_item(_tree_item : TreeItem) -> void:
+	# Only emit if the selected tree item is a chapter
+	if _tree_item.get_suffix(0) != MODULE_SUFFIX:
+		emit_signal("signal_selected_chapter")
+	else:
+		emit_signal("signal_selected_module")

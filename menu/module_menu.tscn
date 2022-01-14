@@ -202,6 +202,8 @@ __meta__ = {
 }
 
 [connection signal="item_selected" from="VBoxContainer/HBoxContainer/SelectionBox/ModuleTree" to="VBoxContainer/HBoxContainer/SelectionBox/ModuleTree" method="_on_ModuleTree_item_selected"]
+[connection signal="signal_selected_chapter" from="VBoxContainer/HBoxContainer/SelectionBox/ModuleTree" to="." method="_on_ModuleTree_signal_selected_chapter"]
+[connection signal="signal_selected_module" from="VBoxContainer/HBoxContainer/SelectionBox/ModuleTree" to="." method="_on_ModuleTree_signal_selected_module"]
 [connection signal="signal_update_chapter_desc" from="VBoxContainer/HBoxContainer/SelectionBox/ModuleTree" to="." method="_on_ModuleTree_signal_update_chapter_desc"]
 [connection signal="pressed" from="HBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="HBoxContainer/PlayButton" to="." method="_on_BackButton_pressed"]
