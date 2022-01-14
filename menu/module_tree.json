@@ -7,35 +7,39 @@
 			"module_chapters": [
 			{
 				"chapter": "What Is a Graph?",
-				"chapter_desc": "This chapter gives the mathematical definition of a graph. We explore its prominence in various real world applications and why the study and application of graph theory is so important."
+				"chapter_desc": "This chapter gives the mathematical definition of a graph. We explore its prominence in the real world and why the study and application of graph theory is so important.\nWe also define some basic graph theory terminology: connected, incidence, adjacency."
 			},
 			{
-				"chapter": "Common Types of Graphs",
-				"chapter_desc": "Module 1 Chapter 2 description"
+				"chapter": "Common Classes of Graphs, Subgraphs, Paths",
+				"chapter_desc": "This chapter explores some common types of graphs: u-v paths, complete graphs, complements, bipartite/multipartite graphs. We also define induced and spanning subgraphs."
 			},
 			{
 				"chapter": "Interactive Section: City Park Designer",
-				"chapter_desc": "City Park Designer description"
+				"chapter_desc": "You are a city park planner! And the park designer has an eye for special [color=yellow]paths[/color] in the park. Your job is to determine if this park has the path desired by the park designer.\n\n[i]Gotta make sure no one gets lost in your parks![/i]"
 			},
 			{
-				"chapter": "Degrees of a Graph",
-				"chapter_desc": "Module 1 Chapter 3 description"
-			},
-			{
-				"chapter": "Interactive Section: Hackerman",
-				"chapter_desc": "Hackerman description"
+				"chapter": "Degrees of a Vertex and the First Theorem of Graph Theory",
+				"chapter_desc": "This chapter showcases the importance of the degree of a vertex and the implications we gain from knowing the vertex degrees of a graph. Notably, we explain the First Theorem of Graph Theory and its proof. We also explain the concept of a graph's diameter, and even/odd vertices."
 			},
 			{
 				"chapter": "r-regular Graphs",
-				"chapter_desc": "Module 1 Chapter 4 description"
+				"chapter_desc": "This chapter explains a class of graphs called r-regular graphs. We give various examples of r-regular graphs."
+			},
+			{
+				"chapter": "Degree Sequences and the Havel-Hakimi Algorithm",
+				"chapter_desc": "This chapter discusses an alternate representation of a graph using its degrees, called degree sequences. Not all sequences of numbers are degree sequences (i.e. represent a graph). Because of this, we explore the Havel-Hakimi Algorithm - a procedure for determining if a sequence of numbers represents the degrees of a graph."
+			},
+			{
+				"chapter": "Interactive Section: Hackerman",
+				"chapter_desc": "You're a (fictional) hacker trying to break into a computer network! You are given a sequence of numbers, relating to the number of connection for each computer in the network. You want to figure out if this network is valid (i.e. the sequence is [color=yellow]graphical[/color]). You can determine this by using the [color=yellow]Havel-Hakimi Algorithm.[/color]\n\n[i]Hack the planet, if you are a 1337 h4x0r![/i]"
 			},
 			{
 				"chapter": "Graph Isomorphisms",
-				"chapter_desc": "Module 1 Chapter 5 description"
+				"chapter_desc": "This chapter explores the mathematical concept of an isomorphism. We apply this concept to graphs and how we can determine if graphs are isomorphic to each other."
 			},
 			{
 				"chapter": "Interactive Section: Electronics Patent Lawyer",
-				"chapter_desc": "Electronics Patent Lawyer description"
+				"chapter_desc": "You are an patent lawyer for an electronics company! You are tasked with comparing your company's circuit boards with another company's circuit boards, and wondering if you should file a lawsuit.\n\nThese circuit boards can be seen as graphs, where a solder point can be seen as a vertex, and the wires can be seen as edges. If these two graphs are [color=yellow]isomorphic[/color], then the circuit boards are the same.\n\n[i]Lawyer up and file them lawsuits![/i]"
 			}
 			],
 		},
@@ -48,12 +52,46 @@
 				"chapter_desc": "Module 2 Chapter 1 description"
 			},
 			{
+				"chapter": "Tree Graph",
+				"chapter_desc": "Module 2 Chapter 1 description"
+			},
+			{
+				"chapter": "Matrix Representation of a Graph",
+				"chapter_desc": "Module 2 Chapter 1 description"
+			},
+			{
+				"chapter": "Spanning Trees and the Matrix-Tree Theorem",
+				"chapter_desc": "Module 2 Chapter 1 description"
+			},
+			{
+				"chapter": "The Minimum Spanning Tree (MST) Problem",
+				"chapter_desc": "Module 2 Chapter 1 description"
+			},
+			{
 				"chapter": "Interactive Section: MST Algorithms Visualization",
 				"chapter_desc": "MST Algorithms description"
 			},
 			{
+				"chapter": "Measures of Connectivity: Cut-Vertices and Edge-Cuts",
+				"chapter_desc": "Bomb Defusal description"
+			},
+			{
 				"chapter": "Interactive Section: Bomb Defusal",
 				"chapter_desc": "Bomb Defusal description"
+			},
+			{
+				"chapter": "Eulerian Graphs",
+				"chapter_desc": "Bridge Walkathon description"
+			},
+			{
+			
+				"chapter": "Hamiltonian Graphs and Ore Theorem",
+				"chapter_desc": "Bridge Walkathon description"
+			},
+			{
+			
+				"chapter": "Closure of a Graph",
+				"chapter_desc": "Bridge Walkathon description"
 			},
 			{
 				"chapter": "Interactive Section: Bridge Walkathon",
@@ -74,13 +112,29 @@
 				"chapter_desc": "Houses and Utilities description"
 			},
 			{
+				"chapter": "Embedding Graphs on Surfaces",
+				"chapter_desc": "Module 3 Chapter 1 description"
+			},
+			{
 				"chapter": "Interactive Section: Nonplanar Graphs Embedded",
 				"chapter_desc": "Nonplanar Graphs Embedded description"
 			},
 			{
-				"chapter": "Interactive Section: Cartography Coloring",
-				"chapter_desc": "Cartography Coloring description"
+				"chapter": "The Four Color Problem",
+				"chapter_desc": "Module 3 Chapter 1 description"
 			},
+			{
+				"chapter": "Vertex Coloring and the Four Color Theorem",
+				"chapter_desc": "Module 3 Chapter 1 description"
+			},
+			{
+				"chapter": "Interactive Section: Map Coloring",
+				"chapter_desc": "You are a cartographer coloring a map!"
+			},
+			{
+				"chapter": "Ramsey Theory and Ramsey Numbers",
+				"chapter_desc": "Module 3 Chapter 1 description"
+			}
 		]
 		}
 	]

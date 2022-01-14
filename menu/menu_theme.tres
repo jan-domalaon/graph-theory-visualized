@@ -9,3 +9,4 @@ font_data = SubResource( 1 )
 
 [resource]
 default_font = SubResource( 2 )
+TextEdit/fonts/font = null

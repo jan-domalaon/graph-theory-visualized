@@ -38,6 +38,7 @@ func initialize_module_tree(_tree_dict : Dictionary) -> void:
 		var module_desc = _tree_dict[TREE_CHILDREN_KEY][num_ind-1][MODULE_DESC_KEY]
 		module.set_text(0, module_name)
 		module.set_metadata(0, module_desc)
+		module.set_collapsed(true)
 		add_module_children(module, module_pair_dict, MODULE_CHAPTER_KEY)
 
 
