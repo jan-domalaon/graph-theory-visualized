@@ -6,3 +6,6 @@ export_presets.cfg
 # System/tool-specific ignores
 .directory
 *~
+
+# Ignore chapter viewer videos
+global/chapter_viewer/*.webm
