@@ -7,15 +7,16 @@ const TREE_ROOT : String = "root"
 const TREE_CHILDREN_KEY : String = "children"
 const MODULE_CHAPTER_KEY : String = "module_chapters"
 const MODULE_DESC_KEY : String = "module_desc"
-const CHAPTER_KEY : String = "chapter"
+const CHAPTER_KEY : String = "chapter_title"
 const CHAPTER_DESC_KEY : String = "chapter_desc"
+const CHAPTER_DATA_KEY : String = "chapter_data_name"
 const NO_CHAPTER_DESC : String = "This module/chapter has no description."
 const MODULE_SUFFIX : String = "Module"
 
 export var tree_json_path : String = "res://menu/module_tree.json"
 onready var tree_node : Tree = $"." 
 
-signal signal_update_chapter_desc(chapter_desc)
+signal signal_update_tree_item_desc(tree_item_desc)
 signal signal_selected_chapter
 signal signal_selected_module
 
@@ -48,11 +49,11 @@ func initialize_module_tree(_tree_dict : Dictionary) -> void:
 
 func add_module_children(_curr_tree_item : TreeItem, _module_pair_dict : Dictionary, _chapters_key : String) -> void:
 	# Create TreeItems for each chapter under module
-	# TreeItem Metadata contains the chapter description
+	# TreeItem Metadata contains a dictionary of chapter name, chapter desc, chapter data
 	for chapter_dict in _module_pair_dict[_chapters_key]:
 		var chapter_tree_item = tree_node.create_item(_curr_tree_item)
 		chapter_tree_item.set_text(0, chapter_dict[CHAPTER_KEY])
-		chapter_tree_item.set_metadata(0, chapter_dict[CHAPTER_DESC_KEY])
+		chapter_tree_item.set_metadata(0, chapter_dict)
 
 
 func get_module_json() -> Dictionary:
@@ -69,19 +70,28 @@ func get_module_json() -> Dictionary:
 func _on_ModuleTree_item_selected():
 	var selected_tree_item = get_selected()
 	var selected_tree_item_metadata = get_selected().get_metadata(0)
+	var selected_tree_item_desc = ""
+	
+	# Differentiate between module and chapter selection. Module metadata is a string and
+	# chapter is a string
+	if typeof(selected_tree_item_metadata) == TYPE_DICTIONARY:
+		selected_tree_item_desc = selected_tree_item_metadata[CHAPTER_DESC_KEY]
+	else:
+		selected_tree_item_desc = selected_tree_item_metadata
 	
 	# Send a signal to update chapter description box (see ModuleSelection screen)
-	emit_update_chapter_desc(selected_tree_item_metadata)
+	# Send chapter dictionary to ModuleSelection screen
+	emit_update_tree_item_desc(selected_tree_item_desc)
 	
 	# Also send a signal to trigger play button visibility
 	emit_selected_tree_item(selected_tree_item)
 
 
-func emit_update_chapter_desc(_chapter_desc : String) -> void:
+func emit_update_tree_item_desc(_chapter_desc : String) -> void:
 	if _chapter_desc != null:
-		emit_signal("signal_update_chapter_desc", _chapter_desc)
+		emit_signal("signal_update_tree_item_desc", _chapter_desc)
 	else:
-		emit_signal("signal_update_chapter_desc", NO_CHAPTER_DESC)
+		emit_signal("signal_update_tree_item_desc", NO_CHAPTER_DESC)
 
 
 func emit_selected_tree_item(_tree_item : TreeItem) -> void:
