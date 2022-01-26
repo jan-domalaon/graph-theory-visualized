@@ -185,6 +185,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[connection signal="signal_play_location" from="VBoxContainer/HBoxContainer/SelectionBox/ModuleTreeView" to="." method="_on_ModuleTreeView_signal_play_location"]
 [connection signal="signal_selected_chapter" from="VBoxContainer/HBoxContainer/SelectionBox/ModuleTreeView" to="." method="_on_ModuleTreeView_signal_selected_chapter"]
 [connection signal="signal_selected_module" from="VBoxContainer/HBoxContainer/SelectionBox/ModuleTreeView" to="." method="_on_ModuleTreeView_signal_selected_module"]
 [connection signal="signal_update_tree_item_desc" from="VBoxContainer/HBoxContainer/SelectionBox/ModuleTreeView" to="." method="_on_ModuleTreeView_signal_update_tree_item_desc"]

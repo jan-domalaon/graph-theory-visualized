@@ -9,7 +9,9 @@ const MODULE_CHAPTER_KEY : String = "module_chapters"
 const MODULE_DESC_KEY : String = "module_desc"
 const CHAPTER_KEY : String = "chapter_title"
 const CHAPTER_DESC_KEY : String = "chapter_desc"
-const CHAPTER_DATA_KEY : String = "chapter_data_name"
+const CHAPTER_DATA_NAME_KEY : String = "chapter_data_name"
+const CHAPTER_DATA_LOCATION_KEY : String = "chapter_data_location"
+const INTERACTIVE_CHAPTER_KEY : String = "interactive"
 const NO_CHAPTER_DESC : String = "This module/chapter has no description."
 const MODULE_SUFFIX : String = "Module"
 
@@ -17,6 +19,7 @@ export var tree_json_path : String = "res://menu/module_tree.json"
 onready var tree_node : Tree = $"." 
 
 signal signal_update_tree_item_desc(tree_item_desc)
+signal signal_play_location(play_location, is_interactive)
 signal signal_selected_chapter
 signal signal_selected_module
 
@@ -68,14 +71,19 @@ func get_module_json() -> Dictionary:
 
 
 func _on_ModuleTree_item_selected():
-	var selected_tree_item = get_selected()
+	var selected_tree_item : TreeItem = get_selected()
+	# Can be string or dictionary - depends on if module or chapter
 	var selected_tree_item_metadata = get_selected().get_metadata(0)
-	var selected_tree_item_desc = ""
+	var selected_tree_item_desc : String = ""
+	var chapter_data_location : String = ""
+	var chapter_is_interactive : bool = false
+	var is_chapter : bool = false
 	
 	# Differentiate between module and chapter selection. Module metadata is a string and
 	# chapter is a string
 	if typeof(selected_tree_item_metadata) == TYPE_DICTIONARY:
 		selected_tree_item_desc = selected_tree_item_metadata[CHAPTER_DESC_KEY]
+		is_chapter = true
 	else:
 		selected_tree_item_desc = selected_tree_item_metadata
 	
@@ -83,8 +91,18 @@ func _on_ModuleTree_item_selected():
 	# Send chapter dictionary to ModuleSelection screen
 	emit_update_tree_item_desc(selected_tree_item_desc)
 	
+	# Send a signal to update playable chapter
+	if is_chapter:
+		chapter_data_location = selected_tree_item_metadata[CHAPTER_DATA_LOCATION_KEY]
+		chapter_is_interactive = selected_tree_item_metadata[INTERACTIVE_CHAPTER_KEY] 
+		emit_update_chapter_selection(chapter_data_location, chapter_is_interactive)
+	
 	# Also send a signal to trigger play button visibility
 	emit_selected_tree_item(selected_tree_item)
+
+
+func emit_update_chapter_selection(_chapter_location : String, _is_interactive : bool):
+	emit_signal("signal_play_location", _chapter_location, _is_interactive)
 
 
 func emit_update_tree_item_desc(_chapter_desc : String) -> void:
