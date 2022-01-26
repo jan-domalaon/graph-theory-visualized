@@ -279,6 +279,7 @@ __meta__ = {
 [node name="MGCenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = -20.0
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -286,9 +287,9 @@ __meta__ = {
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MGCenterContainer"]
 margin_left = 716.0
-margin_top = 256.0
+margin_top = 246.0
 margin_right = 1204.0
-margin_bottom = 824.0
+margin_bottom = 814.0
 custom_constants/separation = -535
 
 [node name="MGLogo" type="TextureRect" parent="MGCenterContainer/HBoxContainer"]
