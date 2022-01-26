@@ -8,43 +8,72 @@
 			{
 				"chapter_title": "What Is a Graph?",
 				"chapter_desc": "This chapter gives the mathematical definition of a graph. We explore its prominence in the real world and why the study and application of graph theory is so important.\nWe also define some basic graph theory terminology: incidence, adjacency.",
-				"chapter_data_name": "chapter_1"
+				"chapter_data_name": "chapter_1.1",
+				"chapter_data_location": "youtube.com",
+				"interactive": false
 			},
 			{
 				"chapter_title": "Subgraphs and Connectedness",
-				"chapter_desc": "This chapter explores the subgraph of a graph. It also introduces the concept of a u-v path and a connected graph."
+				"chapter_desc": "This chapter explores the subgraph of a graph. It also introduces the concept of a u-v path and a connected graph.",
+				"chapter_data_name": "chapter_1.2",
+				"chapter_data_location": "youtube.com",
+				"interactive": false
 			},
 			{
 				"chapter_title": "Common Classes of Graphs",
-				"chapter_desc": "This chapter explores some common types of graphs: complete graphs, complements, bipartite/multipartite graphs."
+				"chapter_desc": "This chapter explores some common types of graphs: complete graphs, complements, bipartite/multipartite graphs.",
+				"chapter_data_name": "chapter_1.3",
+				"chapter_data_location": "youtube.com",
+				"interactive": false
 			},
 			{
 				"chapter_title": "Interactive Section: City Park Designer",
-				"chapter_desc": "You are a city park planner! And the park designer has an eye for special [color=yellow]paths[/color] in the park. Your job is to determine if this park has the path desired by the park designer.\n\n[i]Gotta make sure no one gets lost in your parks![/i]"
+				"chapter_desc": "You are a city park planner! And the park designer has an eye for special [color=yellow]paths[/color] in the park. Your job is to determine if this park has the path desired by the park designer.\n\n[i]Gotta make sure no one gets lost in your parks![/i]",
+				"chapter_data_name": "city_park",
+				"chapter_data_location": "youtube.com",
+				"interactive": true
 			},
 			{
 				"chapter_title": "Degrees of a Vertex and the First Theorem of Graph Theory",
-				"chapter_desc": "This chapter showcases the importance of the degree of a vertex and the implications we gain from knowing the vertex degrees of a graph. Notably, we explain the First Theorem of Graph Theory and its proof. We also explain the concept of a graph's diameter, and even/odd vertices."
+				"chapter_desc": "This chapter showcases the importance of the degree of a vertex and the implications we gain from knowing the vertex degrees of a graph. Notably, we explain the First Theorem of Graph Theory and its proof. We also explain the concept of a graph's diameter, and even/odd vertices.",
+				"chapter_data_name": "chapter_2",
+				"chapter_data_location": "youtube.com",
+				"interactive": false
 			},
 			{
 				"chapter_title": "r-regular Graphs",
-				"chapter_desc": "This chapter explains a class of graphs called r-regular graphs. We give various examples of r-regular graphs."
+				"chapter_desc": "This chapter explains a class of graphs called r-regular graphs. We give various examples of r-regular graphs.",
+				"chapter_data_name": "chapter_2.1",
+				"chapter_data_location": "youtube.com",
+				"interactive": false
 			},
 			{
 				"chapter_title": "Degree Sequences and the Havel-Hakimi Algorithm",
-				"chapter_desc": "This chapter discusses an alternate representation of a graph using its degrees, called degree sequences. Not all sequences of numbers are degree sequences (i.e. represent a graph). Because of this, we explore the Havel-Hakimi Algorithm - a procedure for determining if a sequence of numbers represents the degrees of a graph."
+				"chapter_desc": "This chapter discusses an alternate representation of a graph using its degrees, called degree sequences. Not all sequences of numbers are degree sequences (i.e. represent a graph). Because of this, we explore the Havel-Hakimi Algorithm - a procedure for determining if a sequence of numbers represents the degrees of a graph.",
+				"chapter_data_name": "chapter_2.2",
+				"chapter_data_location": "youtube.com",
+				"interactive": false
 			},
 			{
 				"chapter_title": "Interactive Section: Hackerman",
-				"chapter_desc": "You're a (fictional) hacker trying to break into a computer network! You are given a sequence of numbers, relating to the number of connection for each computer in the network. You want to figure out if this network is valid (i.e. the sequence is [color=yellow]graphical[/color]). You can determine this by using the [color=yellow]Havel-Hakimi Algorithm.[/color]\n\n[i]Hack the planet, if you are a 1337 h4x0r![/i]"
+				"chapter_desc": "You're a (fictional) hacker trying to break into a computer network! You are given a sequence of numbers, relating to the number of connection for each computer in the network. You want to figure out if this network is valid (i.e. the sequence is [color=yellow]graphical[/color]). You can determine this by using the [color=yellow]Havel-Hakimi Algorithm.[/color]\n\n[i]Prove that you are a 1337 h4x0r![/i]",
+				"chapter_data_name": "hackerman",
+				"chapter_data_location": "youtube.com",
+				"interactive": true
 			},
 			{
 				"chapter_title": "Graph Isomorphisms",
-				"chapter_desc": "This chapter explores the mathematical concept of an isomorphism. We apply this concept to graphs and how we can determine if graphs are isomorphic to each other."
+				"chapter_desc": "This chapter explores the mathematical concept of an isomorphism. We apply this concept to graphs and how we can determine if graphs are isomorphic to each other.",
+				"chapter_data_name": "chapter_3",
+				"chapter_data_location": "youtube.com",
+				"interactive": false
 			},
 			{
 				"chapter_title": "Interactive Section: Electronics Patent Lawyer",
-				"chapter_desc": "You are an patent lawyer for an electronics company! You are tasked with comparing your company's circuit boards with another company's circuit boards, and wondering if you should file a lawsuit.\n\nThese circuit boards can be seen as graphs, where a solder point can be seen as a vertex, and the wires can be seen as edges. If these two graphs are [color=yellow]isomorphic[/color], then the circuit boards are the same.\n\n[i]Lawyer up and file them lawsuits![/i]"
+				"chapter_desc": "You are an patent lawyer for an electronics company! You are tasked with comparing your company's circuit boards with another company's circuit boards, and wondering if you should file a lawsuit.\n\nThese circuit boards can be seen as graphs, where a solder point can be seen as a vertex, and the wires can be seen as edges. If these two graphs are [color=yellow]isomorphic[/color], then the circuit boards are the same.\n\n[i]Lawyer up and file them lawsuits for corporate glory![/i]",
+				"chapter_data_name": "electronics_patent",
+				"chapter_data_location": "youtube.com",
+				"interactive": true
 			}
 			],
 		},
@@ -54,53 +83,89 @@
 			"module_chapters": [
 			{
 				"chapter_title": "Bridges of a Graph",
-				"chapter_desc": "Module 2 Chapter 1 description"
+				"chapter_desc": "Module 2 Chapter 1 description",
+				"chapter_data_name": "chapter_4.1",
+				"chapter_data_location": "youtube.com",
+				"interactive": false
 			},
 			{
 				"chapter_title": "Tree Graph",
-				"chapter_desc": "Under construction!"
+				"chapter_desc": "Under construction!",
+				"chapter_data_name": "chapter_4.2",
+				"chapter_data_location": "youtube.com",
+				"interactive": false
 			},
 			{
 				"chapter_title": "Matrix Representation of a Graph",
-				"chapter_desc": "Under construction!"
+				"chapter_desc": "Under construction!",
+				"chapter_data_name": "chapter_4.3",
+				"chapter_data_location": "youtube.com",
+				"interactive": false
 			},
 			{
 				"chapter_title": "Spanning Trees and the Matrix-Tree Theorem",
-				"chapter_desc": "Under construction!"
+				"chapter_desc": "Under construction!",
+				"chapter_data_name": "chapter_4.4",
+				"chapter_data_location": "youtube.com",
+				"interactive": false
 			},
 			{
 				"chapter_title": "The Minimum Spanning Tree (MST) Problem",
-				"chapter_desc": "Under construction!"
+				"chapter_desc": "Under construction!",
+				"chapter_data_name": "chapter_4.5",
+				"chapter_data_location": "youtube.com",
+				"interactive": false
 			},
 			{
 				"chapter_title": "Interactive Section: MST Algorithms Visualization",
-				"chapter_desc": "MST Algorithms description"
+				"chapter_desc": "MST Algorithms description",
+				"chapter_data_name": "mst_algorithms",
+				"chapter_data_location": "youtube.com",
+				"interactive": true
 			},
 			{
 				"chapter_title": "Measures of Connectivity: Cut-Vertices and Edge-Cuts",
-				"chapter_desc": "Under construction!"
+				"chapter_desc": "Under construction!",
+				"chapter_data_name": "chapter_5.1",
+				"chapter_data_location": "youtube.com",
+				"interactive": false
 			},
 			{
 				"chapter_title": "Interactive Section: Bomb Defusal",
-				"chapter_desc": "Bomb Defusal description"
+				"chapter_desc": "Bomb Defusal description",
+				"chapter_data_name": "bomb_defusal",
+				"chapter_data_location": "youtube.com",
+				"interactive": true
 			},
 			{
 				"chapter_title": "Eulerian Graphs",
-				"chapter_desc": "Under construction!"
+				"chapter_desc": "Under construction!",
+				"chapter_data_name": "chapter_6.1",
+				"chapter_data_location": "youtube.com",
+				"interactive": false
 			},
 			{
 			
 				"chapter_title": "Hamiltonian Graphs and Ore Theorem",
-				"chapter_desc": "Under construction!"
+				"chapter_desc": "Under construction!",
+				"chapter_data_name": "chapter_6.2",
+				"chapter_data_location": "youtube.com",
+				"interactive": false
 			},
 			{
 			
 				"chapter_title": "Closure of a Graph",
-				"chapter_desc": "Under construction!"
+				"chapter_desc": "Under construction!",
+				"chapter_data_name": "chapter_6.3",
+				"chapter_data_location": "youtube.com",
+				"interactive": false
 			},
 			{
 				"chapter_title": "Interactive Section: Bridge Walkathon",
-				"chapter_desc": "Bridge Walkathon description"
+				"chapter_desc": "Bridge Walkathon description",
+				"chapter_data_name": "bridge_walkathon",
+				"chapter_data_location": "youtube.com",
+				"interactive": true
 			}
 			]
 		},
@@ -110,35 +175,59 @@
 			"module_chapters": [
 			{
 				"chapter_title": "Planar Graphs",
-				"chapter_desc": "Module 3 Chapter 1 description"
+				"chapter_desc": "Module 3 Chapter 1 description",
+				"chapter_data_name": "chapter_7.1",
+				"chapter_data_location": "youtube.com",
+				"interactive": false
 			},
 			{
 				"chapter_title": "Interactive Section: Houses and Utilities",
-				"chapter_desc": "Houses and Utilities description"
+				"chapter_desc": "Houses and Utilities description",
+				"chapter_data_name": "houses_and_utilities",
+				"chapter_data_location": "youtube.com",
+				"interactive": true
 			},
 			{
 				"chapter_title": "Embedding Graphs on Surfaces",
-				"chapter_desc": "Under construction!"
+				"chapter_desc": "Under construction!",
+				"chapter_data_name": "chapter_8.1",
+				"chapter_data_location": "youtube.com",
+				"interactive": false
 			},
 			{
 				"chapter_title": "Interactive Section: Nonplanar Graphs Embedded",
-				"chapter_desc": "Nonplanar Graphs Embedded description"
+				"chapter_desc": "Nonplanar Graphs Embedded description",
+				"chapter_data_name": "nonplanar_graph_embeddings",
+				"chapter_data_location": "youtube.com",
+				"interactive": true
 			},
 			{
 				"chapter_title": "The Four Color Problem",
-				"chapter_desc": "Under construction!"
+				"chapter_desc": "Under construction!",
+				"chapter_data_name": "chapter_9.1",
+				"chapter_data_location": "youtube.com",
+				"interactive": false
 			},
 			{
 				"chapter_title": "Vertex Coloring and the Four Color Theorem",
-				"chapter_desc": "Under construction!"
-			},
-			{
-				"chapter_title": "Interactive Section: Map Coloring",
-				"chapter_desc": "You are a cartographer coloring a map!"
+				"chapter_desc": "Under construction!",
+				"chapter_data_name": "chapter_9.2",
+				"chapter_data_location": "youtube.com",
+				"interactive": false
 			},
 			{
 				"chapter_title": "Ramsey Theory and Ramsey Numbers",
-				"chapter_desc": "Under construction!"
+				"chapter_desc": "Under construction!",
+				"chapter_data_name": "chapter_9.3",
+				"chapter_data_location": "youtube.com",
+				"interactive": false
+			},
+			{
+				"chapter_title": "Interactive Section: Map Coloring",
+				"chapter_desc": "You are a cartographer coloring a map!",
+				"chapter_data_name": "map_coloring",
+				"chapter_data_location": "youtube.com",
+				"interactive": true
 			}
 		]
 		}
