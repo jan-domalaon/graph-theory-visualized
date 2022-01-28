@@ -1,0 +1,6 @@
+Theorem (Erdős–Gallai):
+
+Let 
+
+Algorithm (Havel-Hakimi):
+

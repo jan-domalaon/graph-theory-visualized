@@ -1,0 +1,5 @@
+Hackerman Kernel version 2.2.7 --- Loaded
+Copyright (C) 2021, 2022
+Maritimes Gameworks. All rights reserved. (not really lol)
+
+Enter a command to begin. Type 'help' for a list of commands.

@@ -1,0 +1,8 @@
+exit [-Y/yes]
+graphical [-a/answer]
+havelhakimi
+help [-a/all]
+hhreduce
+nextlevel
+
+For optional flags, enter [-x] without the square brackets. Enter -x only.

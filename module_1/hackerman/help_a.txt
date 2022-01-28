@@ -1,0 +1,16 @@
+exit [-Y/yes]
+graphical [-a/answer]
+havelhakimi
+help [-a/all]
+hhreduce
+nextlevel
+
+Fluff commands:
+averagemathenjoyer
+bestuni
+bruhmoment
+neco
+gtvstats
+inthemainframe [-p/playlist]
+
+For optional flags, enter [-x] without the square brackets. Enter -x only.
