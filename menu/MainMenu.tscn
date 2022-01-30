@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://menu/vignette.png" type="Texture" id=1]
 [ext_resource path="res://global/scene_change/scene_change_transition.tscn" type="PackedScene" id=2]
@@ -105,6 +105,18 @@ tracks/7/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Grid:material:shader_param/border_width")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.01 ]
 }
 
 [sub_resource type="Animation" id=1]
@@ -283,6 +295,43 @@ tracks/7/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
+tracks/8/type = "value"
+tracks/8/path = NodePath("Grid:material:shader_param/border_width")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Shader" id=11]
+code = "// From Godot Shaders: https://godotshaders.com/shader/2d-grid-with-adjacent-cells/
+
+shader_type canvas_item;
+
+uniform float columns = 64.0;
+uniform float rows = 36.0;
+uniform float border_width = 0.05;
+uniform vec4 border_color : hint_color;
+
+
+void fragment() {
+    vec2 grid = fract(vec2(UV.x * columns, UV.y * rows));
+	vec2 bottom_left = step(vec2(border_width), grid);
+	vec2 top_right = step(vec2(border_width), 1.0 - grid);
+	COLOR = border_color - (bottom_left.x * bottom_left.y * top_right.x * top_right.y);
+}"
+
+[sub_resource type="ShaderMaterial" id=12]
+shader = SubResource( 11 )
+shader_param/columns = 16.0
+shader_param/rows = 9.0
+shader_param/border_width = 0.0
+shader_param/border_color = Color( 0.223529, 0.223529, 0.223529, 1 )
 
 [sub_resource type="Shader" id=8]
 code = "// From https://godotshaders.com/shader/color-vignetting/
@@ -338,6 +387,14 @@ anchor_bottom = 1.0
 rect_min_size = Vector2( 1280, 720 )
 mouse_filter = 2
 color = Color( 0.133333, 0.141176, 0.196078, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" type="ColorRect" parent="."]
+material = SubResource( 12 )
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
