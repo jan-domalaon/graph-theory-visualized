@@ -55,10 +55,11 @@ func get_boot_msg() -> String:
 	if _boot_msg_file.file_exists(boot_msg_filepath):
 		_boot_msg_file.open(boot_msg_filepath, File.READ)
 		var data = _boot_msg_file.get_as_text()
+		_boot_msg_file.close()
 		return data
 	else:
+		_boot_msg_file.close()
 		return ""
-	_boot_msg_file.close()
 
 
 func handle_command(_command : String) -> void:

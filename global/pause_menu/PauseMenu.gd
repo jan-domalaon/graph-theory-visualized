@@ -1,12 +1,17 @@
+# Pause Menu. Handles Resume, Restart and Return to Module Menu
+# This menu's pause mode is set to Process. Always running when opened
 extends Control
 
 
+# This works as long as PauseMenu is one level down the parent node
+onready var parent_filepath : String = get_parent().filename 
 onready var is_game_paused : bool = false
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	# Start hidden in interactive scene
 	self.hide()
+	set_process_input(true)
 
 
 func _input(event):
@@ -26,13 +31,9 @@ func resume_game() -> void:
 
 func pause_game() -> void:
 	# Pause game state
+	self.show()
 	is_game_paused = true
 	get_tree().set_pause(true)
-	self.show()
-
-
-func toggle_pause() -> void:
-	is_game_paused = not is_game_paused
 
 
 func _on_Resume_pressed():
@@ -40,12 +41,11 @@ func _on_Resume_pressed():
 
 
 func _on_Restart_pressed():
-	pass # Replace with function body.
+	# Unpause game and change scene to same scene
+	get_tree().paused = false
+	SceneChangeTransition.change_scene_transition(parent_filepath, $CenterContainer/VBoxContainer/ButtonContainer)
 
 
 func _on_ExitSection_pressed():
 	resume_game()
 	SceneChangeTransition.change_scene_transition("res://menu/ModuleMenu.tscn", $CenterContainer/VBoxContainer/ButtonContainer)
-
-
-
