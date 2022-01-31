@@ -1,8 +1,8 @@
-exit [-Y/yes]
+exit
 graphical [-a/answer]
 havelhakimi
 help [-a/all]
 hhreduce
-nextlevel
+network [-n/next]
 
 For optional flags, enter [-x] without the square brackets. Enter -x only.

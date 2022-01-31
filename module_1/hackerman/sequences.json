@@ -1,0 +1,15 @@
+{
+	"root": "sequences",
+	"children": [
+		{
+			"sequence_index": "0",
+			"sequence": [3,3,3,4],
+			"is_graphical": false
+		},
+		{
+			"sequence_index": "1",
+			"sequence": [5,3,3,3,3,2,2,2,1],
+			"is_graphical": true
+		}
+	]
+}
