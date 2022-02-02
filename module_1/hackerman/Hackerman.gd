@@ -6,12 +6,25 @@ const COMMAND_LIST : Array = ["help", "help -a", "exit",\
 "inthemainframe","inthemainframe -p"]
 const INVALID_OUTPUT_MSG : String = "Invalid command input."
 
+# For command_prompts JSON
+const PROMPT_CHILDREN_KEY = "children"
+const COMMAND_KEY = "command"
+const COMMAND_PROMPT_KEY = "terminal_output"
+
+# For sequences JSON
+const SEQUENCE_INDEX_KEY = "sequence_index"
+const SEQUENCE_KEY = "sequence"
+const SEQUENCE_GRAPHICAL_KEY = "is_graphical"
+
 var hh_reduce_count : int = 3
 var command_dict : Dictionary = {}
 
-var degree_sequence_dict : Dictionary = {}
+# Form of degree sequence {"index_num": [sequence array, is_graphical]}
+var sequences_dict : Dictionary = {}
 
 export var boot_msg_filepath : String = "res://module_1/hackerman/boot_msg.txt"
+export var command_prompts_filepath : String = "res://module_1/hackerman/command_outputs.json"
+export var degree_sequences_filepath : String = "res://module_1/hackerman/sequences.json"
 
 # Signals to emit to children
 # Signals used instead of direct node path as node structure may change
@@ -19,10 +32,10 @@ signal output_terminal(terminal_msg)
 
 func _enter_tree():
 	# Create command dictionary. Used to assign commands to its terminal output
-	command_dict = create_command_dict(COMMAND_LIST)
-	# Load the prompts and sequences
-	load_prompts()
-	load_degree_sequences()
+	command_dict = initialize_command_dict(COMMAND_LIST)
+	# Load the prompts and sequences from text files
+	initialize_prompts()
+	initialize_degree_sequences()
 
 
 func _ready():
@@ -30,19 +43,46 @@ func _ready():
 	output_to_terminal(get_boot_msg())
 
 
-func create_command_dict(_command_list : Array) -> Dictionary:
+func initialize_command_dict(_command_list : Array) -> Dictionary:
 	var _command_dict : Dictionary = {}
+	
+	# Load commands in the command list. Input new lines for command output for now.
 	for command in _command_list:
 		_command_dict = {command: "\n"}
 	return _command_dict
 
 
-func load_prompts() -> void:
-	pass
+func initialize_prompts() -> void:
+	# Run FileImport.import_file to get json as dict
+	var _command_prompts_json = FileImport.import_file(command_prompts_filepath)
+	
+	# Initialize prompt for all commands in the command list
+	for i in range(0, COMMAND_LIST.size()):
+		# Get array of JSONs with command prompts
+		var _command_prompts_json_list = _command_prompts_json[PROMPT_CHILDREN_KEY]
+		# Only run if i is still within number of children
+		if i <= _command_prompts_json_list.size() - 1:
+			# Get object from command prompt json children list. Returns a json object
+			var _command_json = _command_prompts_json_list[i]
+			# Get the equivalent command in command list
+			var _command = _command_json[COMMAND_KEY]
+			# Assign command prompt in command_dict
+			command_dict[_command] = _command_json[COMMAND_PROMPT_KEY]
+		else:
+			break
 
 
-func load_degree_sequences() -> void:
-	pass
+func initialize_degree_sequences() -> void:
+	# Degree sequences is a JSON file
+	var _sequences_json = FileImport.import_file(degree_sequences_filepath)
+	# For each JSON in list of JSONs in children, create an entry in degree_sequences_dict
+	var _sequences_children_jsons_list : Array = _sequences_json[PROMPT_CHILDREN_KEY]
+	for i in range(0, _sequences_children_jsons_list.size()):
+		var _sequence_json = _sequences_children_jsons_list[i]
+		var _sequence_index = _sequence_json[SEQUENCE_INDEX_KEY]
+		var _sequence_array = _sequence_json[SEQUENCE_KEY]
+		var _sequence_is_graphical = _sequence_json[SEQUENCE_GRAPHICAL_KEY]
+		sequences_dict[_sequence_index] = [_sequence_array, _sequence_is_graphical]
 
 
 func output_to_terminal(_output_message : String) -> void:
@@ -62,7 +102,8 @@ func get_boot_msg() -> String:
 		return ""
 
 
-func handle_command(_command : String) -> void:
+func handle_command_input(_command : String) -> void:
+	# Takes in command from command input and run the function
 	pass
 
 
@@ -73,3 +114,5 @@ func _on_TerminalInput_enter_command(command) -> void:
 	else:
 		# If not found, output error message
 		output_to_terminal(INVALID_OUTPUT_MSG)
+
+
