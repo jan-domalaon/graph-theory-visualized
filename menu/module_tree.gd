@@ -64,10 +64,11 @@ func get_module_json() -> Dictionary:
 	if module_json_file.file_exists(tree_json_path):
 		module_json_file.open(tree_json_path, File.READ)
 		var data = parse_json(module_json_file.get_as_text())
+		module_json_file.close()
 		return data
 	else:
+		module_json_file.close()
 		return {}
-	module_json_file.close()
 
 
 func _on_ModuleTree_item_selected():
