@@ -3,44 +3,51 @@
 	"children": [
 		{
 			"command": "help",
-			"terminal_output": "exit
-			graphical [-a/answer]
-			havelhakimi
-			help [-a/all]
-			hhreduce
-			network [-n/next]
+			"terminal_output": "
+exit
+graphical [-Y/yes/sequence is graphical] [-N/no/sequence is not graphical]
+havelhakimi
+help [-a/all]
+hhreduce
+network [-n/next sequence]
 
-			For optional flags, enter [-x] without the square brackets. Enter -x only.
+For optional flags, enter [-x] without the square brackets. Enter -x only.
 			"
 		},
 		{
 			"command": "help -a",
-			"terminal_output": "exit
-			graphical [-a/answer]
-			havelhakimi
-			help [-a/all]
-			hhreduce
-			network [-n/next]
+			"terminal_output": "
+exit
+graphical [-Y/yes/sequence is graphical] [-N/no/sequence is not graphical]
+havelhakimi
+help [-a/all]
+hhreduce
+network [-n/next]
 
-			Fluff commands:
-			averagemathenjoyer
-			bestuni
-			bruhmoment
-			neco
-			gtvstats
-			inthemainframe [-p/playlist]
+Fluff commands:
+averagemathenjoyer
+bestuni
+bruhmoment
+neco
+gtvstats
+inthemainframe [-p/playlist]
 
-			For optional flags, enter [-x] without the square brackets. Enter -x only.
+For optional flags, enter [-x] without the square brackets. Enter -x only.
 			"
 		},
 		{
 			"command": "havelhakimi",
-			"terminal_output": "Theorem (Erdős–Gallai):
+			"terminal_output": "
+Theorem (Erdős–Gallai):
 
-			Let 
+Let 
 
-			Algorithm (Havel-Hakimi):
+Algorithm (Havel-Hakimi):
 			"
+		},
+		{
+			"command": "exit",
+			"terminal_output": "Exiting Hackerman... Returning to Module Menu"
 		}
 	]
 }

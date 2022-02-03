@@ -138,7 +138,7 @@ text = "3 3 3 4 7 8 0"
 align = 1
 autowrap = true
 
-[node name="Timer" type="Label" parent="Game/MainContainer/SequenceContainer/TextureRect/CircleContainer/LabelsContainer" index="1"]
+[node name="TimerLabel" type="Label" parent="Game/MainContainer/SequenceContainer/TextureRect/CircleContainer/LabelsContainer" index="1"]
 margin_top = 82.0
 margin_right = 400.0
 margin_bottom = 123.0
@@ -221,6 +221,7 @@ Maritimes Gameworks. All rights reserved. (not really lol)
 
 Enter a command to begin. Type 'help' for a list of commands.
 "
+scroll_following = true
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false

@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 UIFunctions="*res://global/ui_functions.gd"
 SceneChangeTransition="*res://global/scene_change/scene_change_transition.tscn"
 FileImport="*res://global/file_import.gd"
+CommonSceneChanges="*res://global/scene_change/common_scene_changes.gd"
 
 [display]
 

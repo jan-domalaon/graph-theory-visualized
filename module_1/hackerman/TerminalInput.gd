@@ -19,4 +19,4 @@ func _input(event):
 			emit_signal("enter_command", terminal_input)
 			
 			# Clear text for new command input
-			clear()		
+			clear()

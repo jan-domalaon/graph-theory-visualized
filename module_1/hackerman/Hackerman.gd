@@ -1,7 +1,7 @@
 extends Node
 
 const COMMAND_LIST : Array = ["help", "help -a", "exit",\
-"graphical", "graphical -a", "havelhakimi", "hhreduce", "network", "network -n",\
+"graphical", "graphical -Y", "graphical -N", "havelhakimi", "hhreduce", "network", "network -n",\
 "averagemathenjoyer", "bestuni", "bruhmoment", "neco", "gtvstats",\
 "inthemainframe","inthemainframe -p"]
 const INVALID_OUTPUT_MSG : String = "Invalid command input."
@@ -104,13 +104,52 @@ func get_boot_msg() -> String:
 
 func handle_command_input(_command : String) -> void:
 	# Takes in command from command input and run the function
+	match _command:
+		"help":
+			run_help()
+		"help -a":
+			run_help(true)
+		"exit":
+			run_exit()
+		"graphical":
+			run_graphical(false)
+		"graphical -Y":
+			run_graphical(true, true)
+		"graphical -N":
+			run_graphical(true, true)
 	pass
 
 
-func _on_TerminalInput_enter_command(command) -> void:
-	# Find matching command in command dictionary
-	if command in command_dict.keys():
+func run_help(_show_all: bool = false) -> void:
+	if _show_all == true:
+		output_to_terminal(command_dict["help -a"])
+	else:
+		output_to_terminal(command_dict["help"])
+
+
+func run_exit() -> void:
+	# Exit Hackerman
+	output_to_terminal(command_dict["exit"])
+	SceneChangeTransition.change_scene_transition(CommonSceneChanges.MODULE_MENU_PATH)
+
+
+func run_graphical(_answer_attempt: bool, _is_graphical: bool = false) -> void:
+	if not _answer_attempt:
+		# If not an answer attempt, print possible options for the command.
 		pass
+	else:
+		pass
+
+
+
+
+
+func _on_TerminalInput_enter_command(_command: String) -> void:
+	# Print inputted command
+	output_to_terminal("> " + _command)
+	# Match command in command_dict
+	if _command in command_dict.keys():
+		handle_command_input(_command)
 	else:
 		# If not found, output error message
 		output_to_terminal(INVALID_OUTPUT_MSG)
