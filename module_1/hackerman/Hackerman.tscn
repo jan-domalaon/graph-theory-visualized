@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://global/generic_interactive/GenericInteractive.tscn" type="PackedScene" id=1]
 [ext_resource path="res://module_1/hackerman/characters.png" type="Texture" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://module_1/hackerman/TerminalInput.gd" type="Script" id=10]
 [ext_resource path="res://module_1/hackerman/FluffCommands.gd" type="Script" id=11]
 [ext_resource path="res://module_1/hackerman/hackerman_win_lose.gd" type="Script" id=12]
+[ext_resource path="res://module_1/hackerman/SequenceTimer.gd" type="Script" id=13]
+[ext_resource path="res://module_1/hackerman/SequenceLabel.gd" type="Script" id=14]
 
 [sub_resource type="Shader" id=1]
 code = "// From Godot Shaders: https://godotshaders.com/shader/matrix-rain/
@@ -137,6 +139,7 @@ theme = ExtResource( 5 )
 text = "3 3 3 4 7 8 0"
 align = 1
 autowrap = true
+script = ExtResource( 14 )
 
 [node name="TimerLabel" type="Label" parent="GameSection/MainContainer/SequenceContainer/TextureRect/CircleContainer/LabelsContainer" index="1"]
 margin_top = 82.0
@@ -246,8 +249,12 @@ __meta__ = {
 [node name="FluffCommands" type="Node" parent="GameSection" index="4"]
 script = ExtResource( 11 )
 
+[node name="SequenceTimer" type="Timer" parent="GameSection" index="5"]
+script = ExtResource( 13 )
+
 [connection signal="output_terminal" from="GameSection" to="GameSection/MainContainer/TerminalContainer/TerminalRect/TerminalContainer/TerminalOutput" method="_on_Hackerman_output_terminal"]
 [connection signal="signal_lose_stage" from="GameSection" to="GameSection/WinLoseStates" method="_on_GameSection_signal_lose_stage"]
+[connection signal="signal_update_sequence" from="GameSection" to="GameSection/MainContainer/SequenceContainer/TextureRect/CircleContainer/LabelsContainer/SequenceLabel" method="update_sequence_display"]
 [connection signal="signal_win_stage" from="GameSection" to="GameSection/WinLoseStates" method="_on_GameSection_signal_win_stage"]
 [connection signal="output_terminal" from="GameSection/WinLoseStates" to="GameSection/MainContainer/TerminalContainer/TerminalRect/TerminalContainer/TerminalOutput" method="_on_Hackerman_output_terminal"]
 [connection signal="enter_command" from="GameSection/MainContainer/TerminalContainer/TerminalRect/TerminalContainer/TerminalInput" to="GameSection" method="_on_TerminalInput_enter_command"]

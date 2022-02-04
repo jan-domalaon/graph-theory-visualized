@@ -32,6 +32,7 @@ export var degree_sequences_filepath : String = "res://module_1/hackerman/sequen
 # Signals to emit to children
 # Signals used instead of direct node path as node structure may change
 signal output_terminal(terminal_msg)
+signal signal_update_sequence(sequence_array)
 
 func _enter_tree():
 	# Create command dictionary. Used to assign commands to its terminal output
@@ -44,6 +45,8 @@ func _enter_tree():
 func _ready():
 	# Print out terminal flavour text
 	output_to_terminal(get_boot_msg())
+	
+	#emit_signal("signal_update_sequence", sequences_dict["1"][0])
 
 
 func initialize_command_dict(_command_list : Array) -> Dictionary:
