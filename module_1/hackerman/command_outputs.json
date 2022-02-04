@@ -24,7 +24,7 @@ help [-a/all]
 hhreduce
 network [-n/next]
 
-Fluff commands:
+Fluff commands ([color=red]USE AT YOUR OWN RISK. THERE IS A RARE-OCCURRING BUG IN THE GAME ENGINE OPENING THESE COMMANDS. THIS IS NOT A JOKE. YOU HAVE BEEN WARNED[/color]):
 averagemathenjoyer
 bestuni
 bruhmoment
@@ -48,6 +48,14 @@ Algorithm (Havel-Hakimi):
 		{
 			"command": "exit",
 			"terminal_output": "Exiting Hackerman... Returning to Module Menu"
+		},
+		{
+			"command": "neco",
+			"terminal_output": "Burunyuuuuuuuuu"
+		},
+		{
+			"command": "inthemainframe",
+			"terminal_output": "IM IN"
 		}
 	]
 }

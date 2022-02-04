@@ -10,4 +10,4 @@ func _ready():
 
 
 func _on_Hackerman_output_terminal(terminal_msg):
-	add_text(terminal_msg)
+	append_bbcode(terminal_msg)

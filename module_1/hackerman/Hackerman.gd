@@ -22,6 +22,9 @@ var command_dict : Dictionary = {}
 # Form of degree sequence {"index_num": [sequence array, is_graphical]}
 var sequences_dict : Dictionary = {}
 
+# Filepaths for FluffCommands
+onready var fluff_commands = $FluffCommands
+
 export var boot_msg_filepath : String = "res://module_1/hackerman/boot_msg.txt"
 export var command_prompts_filepath : String = "res://module_1/hackerman/command_outputs.json"
 export var degree_sequences_filepath : String = "res://module_1/hackerman/sequences.json"
@@ -48,7 +51,7 @@ func initialize_command_dict(_command_list : Array) -> Dictionary:
 	
 	# Load commands in the command list. Input new lines for command output for now.
 	for command in _command_list:
-		_command_dict = {command: "\n"}
+		_command_dict[command] = ""
 	return _command_dict
 
 
@@ -66,10 +69,10 @@ func initialize_prompts() -> void:
 			var _command_json = _command_prompts_json_list[i]
 			# Get the equivalent command in command list
 			var _command = _command_json[COMMAND_KEY]
-			# Assign command prompt in command_dict
+			# Assign command prompt in command_dict if there is an associated prompt in the JSON
 			command_dict[_command] = _command_json[COMMAND_PROMPT_KEY]
 		else:
-			break
+			pass
 
 
 func initialize_degree_sequences() -> void:
@@ -117,7 +120,24 @@ func handle_command_input(_command : String) -> void:
 			run_graphical(true, true)
 		"graphical -N":
 			run_graphical(true, true)
-	pass
+		"havelhakimi":
+			pass
+		"hhreduce":
+			pass
+		"network":
+			pass
+		"network -n":
+			pass
+		"averagemathenjoyer", "bestuni", "bruhmoment", "neco":
+			run_fluff(_command)
+		"gtvstats":
+			run_gtvstats()
+		"inthemainframe":
+			run_inthemainframe()
+		"inthemainframe -p":
+			run_inthemainframe(true)
+		_:
+			output_to_terminal(INVALID_OUTPUT_MSG)
 
 
 func run_help(_show_all: bool = false) -> void:
@@ -141,17 +161,48 @@ func run_graphical(_answer_attempt: bool, _is_graphical: bool = false) -> void:
 		pass
 
 
+func run_network(_next_network: bool = false) -> void:
+	if not _next_network:
+		# Print current network level
+		pass
+	else:
+		pass
 
+
+func run_fluff(_command: String) -> void:
+	# Match command and run the appropriate link
+	var url_to_launch: String = ""
+	match _command:
+		"averagemathenjoyer":
+			url_to_launch = fluff_commands.SIGMA_MALE
+		"bestuni":
+			url_to_launch = fluff_commands.BEST_UNI
+		"bruhmoment":
+			url_to_launch = fluff_commands.BRUHMOMENT
+		"neco":
+			url_to_launch = fluff_commands.NECO
+	output_to_terminal(command_dict[_command])
+	OS.shell_open(url_to_launch)
+
+
+func run_inthemainframe(_is_playlist: bool = false) -> void:
+	var url_to_launch: String = ""
+	if not _is_playlist:
+		url_to_launch = fluff_commands.HASHBROWN_MOMENT
+	else:
+		url_to_launch = fluff_commands.MAINFRAME_PLAYLIST
+	output_to_terminal(command_dict["inthemainframe"])
+	OS.shell_open(url_to_launch)
+
+
+func run_gtvstats() -> void:
+	pass
 
 
 func _on_TerminalInput_enter_command(_command: String) -> void:
 	# Print inputted command
 	output_to_terminal("> " + _command)
 	# Match command in command_dict
-	if _command in command_dict.keys():
-		handle_command_input(_command)
-	else:
-		# If not found, output error message
-		output_to_terminal(INVALID_OUTPUT_MSG)
+	handle_command_input(_command)
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://global/generic_interactive/GenericInteractive.tscn" type="PackedScene" id=1]
 [ext_resource path="res://module_1/hackerman/characters.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://module_1/hackerman/Hackerman.gd" type="Script" id=8]
 [ext_resource path="res://module_1/hackerman/TerminalOutput.gd" type="Script" id=9]
 [ext_resource path="res://module_1/hackerman/TerminalInput.gd" type="Script" id=10]
+[ext_resource path="res://module_1/hackerman/FluffCommands.gd" type="Script" id=11]
 
 [sub_resource type="Shader" id=1]
 code = "// From Godot Shaders: https://godotshaders.com/shader/matrix-rain/
@@ -71,7 +72,10 @@ font_data = ExtResource( 6 )
 [node name="Hackerman" instance=ExtResource( 1 )]
 script = ExtResource( 8 )
 
-[node name="Game" type="Control" parent="." index="0"]
+[node name="FluffCommands" type="Node" parent="." index="0"]
+script = ExtResource( 11 )
+
+[node name="Game" type="Control" parent="." index="1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -215,12 +219,7 @@ margin_bottom = 925.0
 rect_min_size = Vector2( 910, 485 )
 size_flags_vertical = 3
 custom_fonts/normal_font = ExtResource( 7 )
-text = "Hackerman Kernel version 2.2.7 --- Loaded
-Copyright (C) 2021, 2022
-Maritimes Gameworks. All rights reserved. (not really lol)
-
-Enter a command to begin. Type 'help' for a list of commands.
-"
+bbcode_enabled = true
 scroll_following = true
 script = ExtResource( 9 )
 __meta__ = {

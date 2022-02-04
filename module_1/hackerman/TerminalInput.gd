@@ -10,8 +10,8 @@ func _ready():
 	set_process_input(true)
 
 
-func _input(event):
-	if (Input.is_action_just_pressed("enter_terminal")):
+func _process(delta):
+	if (Input.is_action_just_pressed( "enter_terminal")):
 		# Send inputted command to parent. Parent handles output handling
 		# Only send when there is actually something in the terminal input
 		var terminal_input : String = get_text()
