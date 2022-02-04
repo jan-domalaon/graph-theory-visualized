@@ -1,4 +1,4 @@
-extends Node
+extends "res://global/generic_interactive/GenericInteractive.gd"
 
 const COMMAND_LIST : Array = ["help", "help -a", "exit",\
 "graphical", "graphical -Y", "graphical -N", "havelhakimi", "hhreduce", "network", "network -n",\

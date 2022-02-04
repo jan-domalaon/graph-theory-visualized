@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://global/generic_interactive/GenericInteractive.tscn" type="PackedScene" id=1]
 [ext_resource path="res://module_1/hackerman/characters.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://module_1/hackerman/TerminalOutput.gd" type="Script" id=9]
 [ext_resource path="res://module_1/hackerman/TerminalInput.gd" type="Script" id=10]
 [ext_resource path="res://module_1/hackerman/FluffCommands.gd" type="Script" id=11]
+[ext_resource path="res://module_1/hackerman/hackerman_win_lose.gd" type="Script" id=12]
 
 [sub_resource type="Shader" id=1]
 code = "// From Godot Shaders: https://godotshaders.com/shader/matrix-rain/
@@ -70,19 +71,14 @@ size = 24
 font_data = ExtResource( 6 )
 
 [node name="Hackerman" instance=ExtResource( 1 )]
+
+[node name="GameSection" parent="." index="0"]
 script = ExtResource( 8 )
 
-[node name="FluffCommands" type="Node" parent="." index="0"]
-script = ExtResource( 11 )
+[node name="WinLoseStates" parent="GameSection" index="0"]
+script = ExtResource( 12 )
 
-[node name="Game" type="Control" parent="." index="1"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Background" type="ColorRect" parent="Game" index="0"]
+[node name="Background" type="ColorRect" parent="GameSection" index="1"]
 material = SubResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -91,7 +87,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MainContainer" type="HBoxContainer" parent="Game" index="1"]
+[node name="MainContainer" type="HBoxContainer" parent="GameSection" index="2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 40.0
@@ -104,12 +100,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SequenceContainer" type="CenterContainer" parent="Game/MainContainer" index="0"]
+[node name="SequenceContainer" type="CenterContainer" parent="GameSection/MainContainer" index="0"]
 margin_left = 10.0
 margin_right = 750.0
 margin_bottom = 1000.0
 
-[node name="TextureRect" type="TextureRect" parent="Game/MainContainer/SequenceContainer" index="0"]
+[node name="TextureRect" type="TextureRect" parent="GameSection/MainContainer/SequenceContainer" index="0"]
 margin_top = 125.0
 margin_right = 740.0
 margin_bottom = 875.0
@@ -117,7 +113,7 @@ rect_min_size = Vector2( 740, 750 )
 texture = ExtResource( 4 )
 expand = true
 
-[node name="CircleContainer" type="CenterContainer" parent="Game/MainContainer/SequenceContainer/TextureRect" index="0"]
+[node name="CircleContainer" type="CenterContainer" parent="GameSection/MainContainer/SequenceContainer/TextureRect" index="0"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
@@ -126,14 +122,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LabelsContainer" type="VBoxContainer" parent="Game/MainContainer/SequenceContainer/TextureRect/CircleContainer" index="0"]
+[node name="LabelsContainer" type="VBoxContainer" parent="GameSection/MainContainer/SequenceContainer/TextureRect/CircleContainer" index="0"]
 margin_left = 160.0
 margin_top = 293.0
 margin_right = 560.0
 margin_bottom = 416.0
 custom_constants/separation = 20
 
-[node name="SequenceLabel" type="Label" parent="Game/MainContainer/SequenceContainer/TextureRect/CircleContainer/LabelsContainer" index="0"]
+[node name="SequenceLabel" type="Label" parent="GameSection/MainContainer/SequenceContainer/TextureRect/CircleContainer/LabelsContainer" index="0"]
 margin_right = 400.0
 margin_bottom = 62.0
 rect_min_size = Vector2( 400, 0 )
@@ -142,7 +138,7 @@ text = "3 3 3 4 7 8 0"
 align = 1
 autowrap = true
 
-[node name="TimerLabel" type="Label" parent="Game/MainContainer/SequenceContainer/TextureRect/CircleContainer/LabelsContainer" index="1"]
+[node name="TimerLabel" type="Label" parent="GameSection/MainContainer/SequenceContainer/TextureRect/CircleContainer/LabelsContainer" index="1"]
 margin_top = 82.0
 margin_right = 400.0
 margin_bottom = 123.0
@@ -151,13 +147,13 @@ custom_fonts/font = SubResource( 5 )
 text = "60.00"
 align = 1
 
-[node name="TerminalContainer" type="VBoxContainer" parent="Game/MainContainer" index="1"]
+[node name="TerminalContainer" type="VBoxContainer" parent="GameSection/MainContainer" index="1"]
 margin_left = 900.0
 margin_right = 1830.0
 margin_bottom = 1000.0
 custom_constants/separation = 40
 
-[node name="GraphViewRect" type="NinePatchRect" parent="Game/MainContainer/TerminalContainer" index="0"]
+[node name="GraphViewRect" type="NinePatchRect" parent="GameSection/MainContainer/TerminalContainer" index="0"]
 visible = false
 modulate = Color( 1, 1, 1, 0.705882 )
 margin_right = 930.0
@@ -165,7 +161,7 @@ margin_bottom = 400.0
 rect_min_size = Vector2( 930, 400 )
 texture = ExtResource( 3 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Game/MainContainer/TerminalContainer/GraphViewRect" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GameSection/MainContainer/TerminalContainer/GraphViewRect" index="0"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -176,20 +172,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NodeViewLabel" type="Label" parent="Game/MainContainer/TerminalContainer/GraphViewRect/VBoxContainer" index="0"]
+[node name="NodeViewLabel" type="Label" parent="GameSection/MainContainer/TerminalContainer/GraphViewRect/VBoxContainer" index="0"]
 margin_right = 920.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 0, 20 )
 custom_fonts/font = ExtResource( 7 )
 text = "Node/Vertex View:"
 
-[node name="Container" type="Container" parent="Game/MainContainer/TerminalContainer/GraphViewRect/VBoxContainer" index="1"]
+[node name="Container" type="Container" parent="GameSection/MainContainer/TerminalContainer/GraphViewRect/VBoxContainer" index="1"]
 margin_top = 24.0
 margin_right = 920.0
 margin_bottom = 374.0
 rect_min_size = Vector2( 0, 350 )
 
-[node name="TerminalRect" type="NinePatchRect" parent="Game/MainContainer/TerminalContainer" index="1"]
+[node name="TerminalRect" type="NinePatchRect" parent="GameSection/MainContainer/TerminalContainer" index="1"]
 modulate = Color( 1, 1, 1, 0.705882 )
 margin_right = 930.0
 margin_bottom = 1000.0
@@ -200,7 +196,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TerminalContainer" type="VBoxContainer" parent="Game/MainContainer/TerminalContainer/TerminalRect" index="0"]
+[node name="TerminalContainer" type="VBoxContainer" parent="GameSection/MainContainer/TerminalContainer/TerminalRect" index="0"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -213,7 +209,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TerminalOutput" type="RichTextLabel" parent="Game/MainContainer/TerminalContainer/TerminalRect/TerminalContainer" index="0"]
+[node name="TerminalOutput" type="RichTextLabel" parent="GameSection/MainContainer/TerminalContainer/TerminalRect/TerminalContainer" index="0"]
 margin_right = 925.0
 margin_bottom = 925.0
 rect_min_size = Vector2( 910, 485 )
@@ -226,7 +222,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TerminalInput" type="LineEdit" parent="Game/MainContainer/TerminalContainer/TerminalRect/TerminalContainer" index="1"]
+[node name="TerminalInput" type="LineEdit" parent="GameSection/MainContainer/TerminalContainer/TerminalRect/TerminalContainer" index="1"]
 margin_top = 930.0
 margin_right = 925.0
 margin_bottom = 980.0
@@ -236,16 +232,22 @@ placeholder_text = "Enter commands here..."
 caret_blink = true
 script = ExtResource( 10 )
 
-[node name="PauseMenuLabel" type="Label" parent="Game" index="2"]
+[node name="PauseMenuLabel" type="Label" parent="GameSection" index="3"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 132.0
-margin_bottom = 14.0
+margin_right = 146.0
+margin_bottom = 28.0
 custom_fonts/font = ExtResource( 7 )
 text = "[Esc]: Pause Menu"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="output_terminal" from="." to="Game/MainContainer/TerminalContainer/TerminalRect/TerminalContainer/TerminalOutput" method="_on_Hackerman_output_terminal"]
-[connection signal="enter_command" from="Game/MainContainer/TerminalContainer/TerminalRect/TerminalContainer/TerminalInput" to="." method="_on_TerminalInput_enter_command"]
+[node name="FluffCommands" type="Node" parent="GameSection" index="4"]
+script = ExtResource( 11 )
+
+[connection signal="output_terminal" from="GameSection" to="GameSection/MainContainer/TerminalContainer/TerminalRect/TerminalContainer/TerminalOutput" method="_on_Hackerman_output_terminal"]
+[connection signal="signal_lose_stage" from="GameSection" to="GameSection/WinLoseStates" method="_on_GameSection_signal_lose_stage"]
+[connection signal="signal_win_stage" from="GameSection" to="GameSection/WinLoseStates" method="_on_GameSection_signal_win_stage"]
+[connection signal="output_terminal" from="GameSection/WinLoseStates" to="GameSection/MainContainer/TerminalContainer/TerminalRect/TerminalContainer/TerminalOutput" method="_on_Hackerman_output_terminal"]
+[connection signal="enter_command" from="GameSection/MainContainer/TerminalContainer/TerminalRect/TerminalContainer/TerminalInput" to="GameSection" method="_on_TerminalInput_enter_command"]

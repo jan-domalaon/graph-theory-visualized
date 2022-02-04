@@ -1,13 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://fonts/Montserrat-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://menu/menu_theme.tres" type="Theme" id=2]
 [ext_resource path="res://fonts/Montserrat-Regular.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://global/shaders/gaussian_blur.tres" type="Shader" id=4]
 [ext_resource path="res://global/pause_menu/PauseMenu.gd" type="Script" id=5]
 
 [sub_resource type="ShaderMaterial" id=4]
-shader = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 50
@@ -30,7 +28,10 @@ __meta__ = {
 material = SubResource( 4 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.282353, 0.282353, 0.282353, 1 )
+color = Color( 0.0666667, 0.0666667, 0.0666667, 0.941176 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
