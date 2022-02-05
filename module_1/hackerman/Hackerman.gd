@@ -21,6 +21,7 @@ var command_dict : Dictionary = {}
 
 # Form of degree sequence {"index_num": [sequence array, is_graphical]}
 var sequences_dict : Dictionary = {}
+var current_sequence_index: int = 0
 
 # Filepaths for FluffCommands
 onready var fluff_commands = $FluffCommands
@@ -33,6 +34,8 @@ export var degree_sequences_filepath : String = "res://module_1/hackerman/sequen
 # Signals used instead of direct node path as node structure may change
 signal output_terminal(terminal_msg)
 signal signal_update_sequence(sequence_array)
+signal signal_start_network_timer
+signal signal_reset_sequence_timer
 
 func _enter_tree():
 	# Create command dictionary. Used to assign commands to its terminal output
@@ -128,9 +131,9 @@ func handle_command_input(_command : String) -> void:
 		"hhreduce":
 			pass
 		"network":
-			pass
+			run_network()
 		"network -n":
-			pass
+			run_network(true)
 		"averagemathenjoyer", "bestuni", "bruhmoment", "neco":
 			run_fluff(_command)
 		"gtvstats":
@@ -167,9 +170,16 @@ func run_graphical(_answer_attempt: bool, _is_graphical: bool = false) -> void:
 func run_network(_next_network: bool = false) -> void:
 	if not _next_network:
 		# Print current network level
-		pass
+		output_to_terminal(command_dict["network"])
 	else:
-		pass
+		# Run timer before launching new sequence
+		run_new_sequence()
+
+
+func run_new_sequence() -> void:
+	# Run countdown. Timer handles countdown output to terminal
+	output_to_terminal(command_dict["network -n"])
+	emit_signal("signal_start_network_timer")
 
 
 func run_fluff(_command: String) -> void:
@@ -209,3 +219,21 @@ func _on_TerminalInput_enter_command(_command: String) -> void:
 	handle_command_input(_command)
 
 
+func _on_NetworkTimer_signal_countdown_done():
+	# Add new sequence when the countdown is done
+	# Reset sequence timer
+	emit_signal("signal_reset_sequence_timer")
+	
+	# Incremement sequence index by 1, only if there is still another sequence in sequences_dict
+	var _next_seq_index = current_sequence_index + 1
+	if (String(_next_seq_index) in sequences_dict.keys()): 
+		current_sequence_index += 1
+		# Update sequence display
+		var _current_sequence_array = sequences_dict[String(current_sequence_index)][0]
+		emit_signal("signal_update_sequence", _current_sequence_array)
+	else:
+		# If there are no more sequences, then the player has won.
+		# Update game stage
+		change_game_stage(WIN_STAGE)
+		emit_signal("signal_win_stage")
+	

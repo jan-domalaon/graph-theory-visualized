@@ -56,6 +56,14 @@ Algorithm (Havel-Hakimi):
 		{
 			"command": "inthemainframe",
 			"terminal_output": "IM IN"
+		},
+		{
+			"command": "network",
+			"terminal_output": "Run 'network -n' to search for a new network sequence. Ie. Enter this command to go to the next level/next degree sequence to solve."
+		},
+		{
+			"command": "network -n",
+			"terminal_output": "Generating new network sequence..."
 		}
 	]
 }

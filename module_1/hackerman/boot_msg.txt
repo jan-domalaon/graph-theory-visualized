@@ -3,3 +3,5 @@ Copyright (C) 2021, 2022
 Maritimes Gameworks. All rights reserved. (not really lol)
 
 Enter a command to begin. Type 'help' for a list of commands.
+
+Enter 'network -n' to begin 'hacking' the first first network sequence!
